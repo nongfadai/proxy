@@ -1,0 +1,4 @@
+netsh wlan set hostednetwork mode=allow ssid=ldj key=xiaoniu888
+netsh wlan start hostednetwork
+
+netsh wlan stop hostednetwork

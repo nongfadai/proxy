@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<textarea style="height:60px" id="text"></textarea>
+<script>
+	var text=document.getElementById("text");
+	
+	text.oninput=function(){
+		console.log("input",text.clientHeight,text.scrollHeight);
+		if(text.clientHeight<text.scrollHeight){
+			text.style.height=text.scrollHeight+"px";
+		}
+	}
+</script>
+</body>
+</html>
