@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=20150510" />
+<title>农发贷</title>
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var host=document.location.hostname;
+	if(/nongfadai.com$/ig.test(host)){
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?10cd9976402aabfbd36d69dd43dd8c1a";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	}
+})();
+</script>
+
+<style>
+	.efont{ text-align:center; line-height:43px;font-size:14px;margin-top:20px;}
+	.divBtn{width: 49.5%;
+	background: none;
+	background-color: #0caffe;
+	border: none;
+	color: #fff;
+	margin-top: 1em;
+	height: 44px;
+	line-height: 44px;
+	font-size: 15px;}
+</style>
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">我的银行卡</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="nfd-touch">
+  <div id="nfd-cards">
+    <input type="hidden" name="cardId" value="2826" />
+    <!-- 绑定了提现银行卡 -->
+    <div class="my-card" style="height:auto;">
+      <span class="card-icon bank-CMB"></span>
+      <span class="title">招商银行</span>
+      <div class="card-number secondary">
+        6226*********020</div>
+      <div class="secondary" style="font-size: 12px;margin-top:10px;">
+        	<span id="phonezf">手机支付限额,</span>通过电脑充值无上限
+      </div>
+      <input id="bank_code" type="hidden" value="CMB"/>
+    </div>
+<div class="tip">
+<!--       <div class="mb-m"> 请联系农发贷客服 </div> -->
+      <div>
+        <img src="/img/customer_service.png" class="customerservice-icon" />
+        <div class="secondary left">
+          <p class="font-12">全国服务热线</p>
+          <p>4008-2255-38</p>
+        </div>
+        <div class="secondary left font-12">
+          <p>&nbsp;</p>
+          <p>服务时间(工作日)：8:30 - 17:30</p>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+	var basepath="http://m.nongfadai.com:80/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/MD5.js"></script>
+<script src="/js/libs/kissy/seed.js" data-config="{combine:false,debug:false}"></script>
+<script src="/js/module/config.js"></script>
+<script src="/js/module/common.js"></script>
+
+
+
+<script type="text/javascript">
+	$(function(){
+		 var bank_code = $("#bank_code").val();
+		 if(bank_code){
+			 $.ajax({
+					type: "GET",
+					url:"/pay/lianlian/queryBankLimitServlet.htm",
+					dataType:"json",
+					async:false,
+					success: function(data){
+						 if(data){
+							 var len = data.length,datai;
+							 for(var i = 0;i<len;i++){
+								 datai = data[i];
+								 if(datai['F02']==bank_code){
+									 var phone_card = parseFloat(datai['F06']);
+									 $("#phonezf").html("手机支付限额"+(phone_card>0?(phone_card/10000+"万元"):(phone_card+"元"))+",");
+									 return false;
+								 }
+							 }
+						 }
+					}
+				});
+		 }
+		
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=20150510" />
+<title>农发贷</title>
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var host=document.location.hostname;
+	if(/nongfadai.com$/ig.test(host)){
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?10cd9976402aabfbd36d69dd43dd8c1a";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	}
+})();
+</script>
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+        <a href="/index.html" target="_self" class="logo">
+            <img src="/img/logo.png" alt="logo">
+        </a>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+  <div id="nfd-touch">
+    <div id="nfd-investments" class="project-detail nfd-tab" style="margin-bottom:6px;">
+      <div class="invest-project">
+        <div class="title">
+          <span class="name">
+          种植贷D150520-002</span>
+          <span class="right secondary font-12">每月付息,到期还本</span>
+          <input type="hidden" id="hkfs" value="MYFX"/>
+        </div>
+        <div class="clearfix"></div>
+        <div class="info">
+          <div class="left">
+            <div class="secondary">年化利率</div>
+            <div class="money investment-amount">11.00%<span class="secondary"></span>
+            </div>
+            <input type="hidden" id="nsy" value="0.110000000"/>
+          </div>
+          <div class="left">
+            <div class="secondary margin">融资期限</div>
+            <div class="money received-amount">
+              5<span class='secondary'>个月</span></div>
+            <input type="hidden" id="qx" value="5"/>
+          </div>
+          <div class="left">
+            <div class="secondary margin">可投金额</div>
+            <div class="money collection-amount red">379,800.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project_invest">
+      <form id="nfd-invest-form2" method="post" action="/pay/bid.htm">
+        <input type="hidden" name="2c894a14-9399-41cb-9a23-c340819b4565" value="87a9ae84-9676-4d13-b880-e4b4574c54d3"><input type="hidden" name="loanId" id="loanId" value="286">
+        <input type="hidden" name="min_amount" id="min_amount" value="100">
+        <input type="hidden" name="my_amount" id="my_amount" value="200.00">
+        <input id="availableAmount" type="hidden" name="availableAmount" value="379800.00">
+        <input type="hidden" name="fx_mount" id="fx_mount" value="">
+        <div class="amount-c2">
+          <div class="input_div">
+          	<input placeholder="起投金额为100" type="num" name="amount" id="amount" odl required required-msg="投资金额不可为空" ge="100" ge-msg="起投金额至少为100" le="379800.00" le-msg="投标金额不能大于剩余可投金额(379800.00)元,请重新输入投标金额." leAccountAmount="200.00" geia="100" />
+          	<span class="unit"> 元 </span>
+            <a id="confirm_invest" href="javascript:void(0)" class="confirm_invest">确认投资</a>
+          </div>
+        </div>
+        <div class="amount-c3" id="invest_chinese_num">
+        </div>
+        <div class="amount-c2 ">
+        	<div class="msg-wrapper hide" id="invest_error_con">
+          		<p class="auth-msg auth-error" id="invest_error_msg"></p>
+        	</div>
+        </div>
+        <div class="account-c2  account-c2-con">
+          <a href="/user/account/recharge.html"  class="invest-all-btn"> 充值 </a>
+          <div>
+            <span style="color:#333;"> 可用余额: </span>
+            <span data-val="0" class="avaliable-balance">
+            200.00</span>
+            <span  class="avaliable-balance"> 元 </span>
+          </div>
+        </div>
+         <div class="amount-c4" id="invest_profit"><!--预期收益-->
+        </div>
+        <div class="amount-c4" id="invest_bonus"><!--投资返现-->
+        </div>
+      </form>
+      <input type="hidden" id="hongbao51" value=""/>
+      <input type="hidden" id="hongbao515" value=""/>
+      <input type="hidden" id="hqhongbaotj51" value="100000-380#50000-200#30000-100#10000-50#1000-20"/>
+      <input type="hidden" id="hqhongbaotj515" value="30000-100#10000-50#1000-20#100-10"/>
+    </div>
+    </div>
+</div>
+<div class="modal-footer" style="display:block">
+  <a id="btn_goback" href="/project_details.html?id=286" class="button">&nbsp;&nbsp;&nbsp;返&nbsp;&nbsp;回&nbsp;&nbsp;&nbsp;</a>
+</div>
+<script type="text/javascript">
+	var basepath="http://m.nongfadai.com:80/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/MD5.js"></script>
+<script src="/js/libs/kissy/seed.js" data-config="{combine:false,debug:false}"></script>
+<script src="/js/module/config.js"></script>
+<script src="/js/module/common.js"></script>
+
+
+
+<script src="js/libs/zepto/zepto.js"></script>
+<script src="js/libs/swipe/swipe.js"></script>
+<script src="js/libs/iscroll/iscroll.js"></script>
+<script src="js/libs/requirejs/require.js"></script>
+<script src="/js/module/tzjsq.js"></script>
+<script src="js/mod/project_invest.js"></script>
+</body>
+</html>

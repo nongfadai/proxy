@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=20150510" />
+<title>农发贷</title>
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var host=document.location.hostname;
+	if(/nongfadai.com$/ig.test(host)){
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?10cd9976402aabfbd36d69dd43dd8c1a";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	}
+})();
+</script>
+
+<style type="text/css">
+.uninvested {
+	background-color: #fff;
+	text-align: center;
+	border: 1px solid #eee;
+	margin: 20px;
+	height: 100px;
+}
+.uninvested .prompt {
+	color: #000;
+	margin-top: .8em;
+}
+.efont{ text-align:center; line-height:43px;font-size:14px;margin-top:20px;}
+	.divBtn{width: 49.5%;
+	background: none;
+	background-color: #0caffe;
+	border: none;
+	color: #fff;
+	margin-top: 1em;
+	height: 44px;
+	line-height: 44px;
+	font-size: 15px;}
+</style>
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">我要提现</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+  <div id="nfd-touch">
+    <div id="nfd-account-c">
+      <div class="account-balance-c" href="personal_info.html">
+  <div class="figure">
+    <img src="/img/avatar.png" class="avatar" />
+    </div>
+  <div class="nick">
+    <span class="secondary">用&nbsp;&nbsp;户&nbsp;名：</span>
+    <span>ldjking</span>
+  </div>
+  <div class="balance">
+    <span class="secondary">可用余额：</span>
+    <span class="money">
+    200<span class="cent">.00</span>
+    <span class="secondary font-12">元</span>
+    </span>
+  </div>
+</div>
+<div class="account-balance-info">
+  <div class="left">
+    <span class="secondary first">累计收益</span>
+    <span class="second">
+     <span>0</span><span class="font-12">.00</span><span class="secondary font-12">元</span>
+    </span>
+  </div>
+  <div class="left">
+    <span class="secondary first">总资产</span>
+    <span class="second">
+     <span>200</span><span class="font-12">.00</span><span class="secondary font-12">元</span>
+    </span>
+  </div>
+</div>
+<label class="account-card">
+      <div class="bank bank-2-CMB left"></div>
+      <div class="left">
+        <div>招商银行</div>
+        <div class="secondary">
+          6226*********020</div>
+      </div>
+      </label>
+    </div>
+    <div id="nfd-withdraw-c">
+      <input type="hidden" id="phone" name="moblie" value="13928420116"/>
+      <input type="hidden" name="cardId" id="cardId" value="2826" />
+      <div>
+        <input type="tel" id="amount" name="amount" class="radius-top" placeholder="请输入提现金额" money required required-msg="提现金额不能为空或零" le="102" le-msg="您的账户余额仅为102" ge="1" ge-msg="提现金额至少为1元">
+        <div id="b_v" style="font-weight:bold;color:#F00 !important;display:block!important;font-size:12px;margin-left: 10px"></div>
+        <div class="msg-wrapper" style="display:none;"></div>
+      </div>
+     <!--  <div>
+        <input type="password" class="radius-top" id="txpwd" name="txpwd" placeholder="请输入交易密码"  required required-msg="交易密码不能为空"/>
+        <div class="msg-wrapper" style="display:none;"></div>
+      </div> -->
+      <div class="relative">
+        <input type="tel" id="code" name="code" class="last-child radius-bottom" placeholder="请输入手机验证码" required required-msg="手机验证码不能为空">
+        <a href="javascript:void(0)" id="nfd-mobile-code" onclick="getSmsCode(this)">获取手机验证码</a>
+        <div class="msg-wrapper" style="display:none;"></div>
+      </div>
+      <div id="reg-mobile-voice-code-con1" class="msg-wrapper hide">
+         <p class="auth-msg auth-error"></p>
+      </div>
+      <div id="reg-mobile-voice-code-con" class="msg-wrapper hide">
+        <p id="reg-mobile-voice-code-msg" class="auth-msg auth-hint">如果您未收到短信，请<span id="get_voice_code" class="get_voice_code">点此获取语音验证码</span></p>
+      </div>
+      <button type="button" class="withdraw-btn btn-primary big" onclick="tx()">提现</button>
+    </div>
+    <form id="nfd-withdraw-form-s" method="POST" action="/user/capital/withdraw.htm?_z=/index.html" autocomplete="off">
+      <input type="hidden" name="2c894a14-9399-41cb-9a23-c340819b4565" value="eda10893-46ee-47de-b870-801dc25402d9"><input type="hidden" id="phone" name="phone" value="13928420116"/>
+      <input type="hidden" id="cardId" name="cardId"/>
+      <input type="hidden" id="amount" name="amount"/>
+      <input type="hidden" id="withdrawPsd" name="withdrawPsd" />
+      <input type="hidden" id="code" name="code"/>
+    </form>
+    </div>
+</div>
+<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+	var basepath="http://m.nongfadai.com:80/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/MD5.js"></script>
+<script src="/js/libs/kissy/seed.js" data-config="{combine:false,debug:false}"></script>
+<script src="/js/module/config.js"></script>
+<script src="/js/module/common.js"></script>
+
+
+
+<!-- <script src="/js/module/withdraw.js"></script> -->
+<script src="/js/module/arabia_to_chinese.js"></script>
+<script type="text/javascript">
+	var wait = 60;
+	var isSendCode = true;
+	var min = 200;
+	var max = 49998;
+	var voiceShow = true;//语音验证发送按钮显示
+	window.onload=function(){
+		var amount = $("#amount");
+		$("#nfd-withdraw-c input").focus(function(){
+			var msg_wrapper = $(this).parent().find("div");
+			if(msg_wrapper.css("display") == 'block'){
+				msg_wrapper.hide();
+			}
+			if($("#allErrMsg").css("display") == 'block'){
+				$("#allErrMsg").hide();
+			}
+		});
+		$("#get_voice_code").on("click",getVoiceCode);
+		amount.keyup(function(){
+			if(max&&(parseFloat(amount.val())>parseFloat(max))){
+				amount.val(max);
+			}
+			var atoc = Arabia_to_Chinese(amount.val());
+			$("#b_v").html(atoc);
+			console.log(atoc);
+		});
+	}
+	/**
+	 * 获取短信验证码
+	 */
+	 function getSmsCode(object){
+		if(isSendCode){
+			var amount_val = $("#amount");
+			var txpwd_val = $("#txpwd");
+			if(!amount_val.val()){
+				amount_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">提现金额不能为空.</p>").show();
+				return false;
+			}
+			/*if(!txpwd_val.val()){
+				txpwd_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">交易密码不能为空.</p>").show();
+				return false;
+			} */
+			var data3={"type":"h5tx","emil":"","phone":$("#phone").val()};
+			$.ajax({
+				type:"post",
+				dataType:"html",
+				url:"/regist/send.htm",
+				data:data3,
+				success:function(data){
+					isSendCode = false;
+					var ct = eval('('+data+')');
+					if(ct[0].num==1){//成功
+						sendclick6();
+					}else{//失败
+						var objectMsg = $(object).parent().find(".msg-wrapper");
+						objectMsg.html('<p class="auth-msg auth-error">'+ct[0].msg+'</p>');
+						objectMsg.show();
+					}
+					if(voiceShow){
+						showVoiceCode();
+					}else{
+						replayShowVoicCode();
+					}
+				}
+			});
+		}
+	}
+	 /**
+		 * 倒计时60秒
+		 */
+		 
+	function sendclick6() {
+		var cap = $("#nfd-mobile-code");
+		if (wait == 0) {
+			isSendCode = true;
+			cap.text("获取验证码");
+			cap.removeClass("wait");
+			wait = 60;
+		} else {
+			cap.addClass("wait");
+			cap.text("已发送(" + wait + ")");
+			wait--;
+			setTimeout(function() {
+				sendclick6();
+			}, 1000);
+		}
+	}
+	function tx() {
+		if (validate()) {
+			var jypwd = $("#nfd-withdraw-c #txpwd");
+			var cardId = $("#nfd-withdraw-c #cardId");
+			var amount = $("#nfd-withdraw-c #amount");
+			var code = $("#nfd-withdraw-c #code");
+			//$("#nfd-withdraw-form-s #withdrawPsd").val(hex_md5(jypwd.val()));
+			$("#nfd-withdraw-form-s #cardId").val(cardId.val());
+			$("#nfd-withdraw-form-s #amount").val(amount.val());
+			$("#nfd-withdraw-form-s #code").val(code.val());
+			$("#nfd-withdraw-form-s").submit();
+		}
+	}
+	function validate() {
+		var validate = true;
+		$("#nfd-withdraw-c input")
+				.each(
+						function() {
+							var formInput = $(this);
+							var formInputValue = formInput.val();
+							if (typeof (formInput.attr("placeholder")) != "undefined") {
+								var msg_wrapper = formInput.parent().find(
+										".msg-wrapper");
+								var errMsg = "";
+								var id = formInput.attr("id");
+								if (!formInputValue) {
+									errMsg = formInput.attr("required-msg");
+								} else {
+									if (id == "amount") {
+										if (parseFloat(formInputValue) < parseFloat(min)
+												|| parseFloat(formInputValue) > parseFloat(max)) {
+											errMsg = "提现金额不能低于" + min
+													+ "元，且不能高于" + max / 10000
+													+ "万元";
+										}
+									} else if (id == "code"
+											&& formInputValue.length != 6) {
+										errMsg = "验证码长度有误";
+									}
+								}
+								if (errMsg) {
+									msg_wrapper
+											.html('<p class="auth-msg auth-error">'
+													+ errMsg + '.</p>');
+									msg_wrapper.show();
+									validate = false;
+									return validate;
+								}
+							}
+						});
+		return validate;
+	}
+	
+	/*语音验证码模块  开始*/
+	function showVoiceCode(){/*展示 发送语音验证码提示*/
+		$("#reg-mobile-voice-code-con").show();
+		voiceShow=false;
+	}
+	
+	function replayShowVoicCode(){
+		var msg="如果您未收到短信，请<span id=\"get_voice_code\" class=\"get_voice_code\">点此获取语音验证码</span>";
+		$("#reg-mobile-voice-code-msg").html(msg);
+		$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
+		voiceShow=false;
+		$("#get_voice_code").on("click",getVoiceCode);
+	}
+	
+	function getVoiceCode(){
+		/*发送一个ajax请求*/
+		function succ(){
+			var msg="请注意接听 <i class='voice_code_phone'>0755-21671435</i> 的来电，我们将在电话中告知动态验证码！";
+			$("#reg-mobile-voice-code-msg").html(msg);
+		}
+		
+		function fail(){
+			var msg="服务器错误，请稍后重试！";
+			$("#reg-mobile-voice-code-msg").html(msg);
+		}
+		
+		
+		var url="/regist/voiceSend.htm";
+		var data = {"type":"h5tx","emil":"","phone":$("#phone").val()};
+		$.ajax(/*向后台发起一个请求  致电用户手机  通知语音验证码*/
+			{
+				url:url,
+				type:"post",
+				data:data,
+				success: succ,
+				error:fail
+			}
+		);
+		$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
+	}
+	/*语音验证码模块 结束*/
+</script>
+</body>
+</html>

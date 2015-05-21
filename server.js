@@ -3,7 +3,7 @@ var app = express();
 var fs = require("fs");
 var util = require('util');
 var cookieParser = require('cookie-parser')
-var basePath="data/register2";
+var basePath="data/m_nfd";
 
 process.on('uncaughtException', function(e) {
   console.log("server on error");　　
@@ -77,9 +77,12 @@ var request = require("request");
 function direct(req, res) {
   //console.log("req.protocol",req.protocol);
   //console.log("req.host",req.host);
-  //console.log("req.path",req.path);
+  for(var p in req){
+ 	//console.log("p",p);
+  }
 
-  var url =req.protocol+"://"+ req.host+req.path;
+  var url =req.protocol+"://"+ req.hostname+req.originalUrl;
+  //console.log("url:"+req.originalUrl);
   //"http://www.baidu.com";
   var method=req.method;
   
@@ -93,24 +96,24 @@ function direct(req, res) {
 	  	encoding:null,
 		body:bodyStr
 	  };
-	opt.headers["Accept-Encoding"]="identity";
+	//opt.headers["Accept-Encoding"]="identity";
   //console.log(req.headers);
   var diskPath=basePath+req.path.replace(/\?[\s\S]*$/g,"");
   if(diskPath.match(/[\/|\\]$/g)){
 	  diskPath+="index.html";
   }
+  //console.log("diskPath",diskPath);
   request(opt, function(err, response, body) {
-    //console.log("body :",body);
     //response.pipe(res);
     //console.log("res",res);
     //console.log("response.headers", response.headers);
 	//console.log(response.headers["content-encoding"]);
 	var encoding=response.headers["content-encoding"];
 	if(encoding=="gzip"){
-		console.log("disk path:"+diskPath);
+		//console.log("disk path:"+diskPath);
 		var zlib = require('zlib');
 		zlib.gunzip(body,function(a,b){
-				console.log("after gupzip");
+				//console.log("after gupzip");
 				//console.log(arguments.length);
 				//console.log(arguments);
 				//body=b;

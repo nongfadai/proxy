@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=20150510" />
+<title>农发贷</title>
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var host=document.location.hostname;
+	if(/nongfadai.com$/ig.test(host)){
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?10cd9976402aabfbd36d69dd43dd8c1a";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	}
+})();
+</script>
+
+</head>
+<body>
+	<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">我要充值</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+				<div id="nfd-touch">
+			<!-- 正常充值界面 -->
+			<div id="nfd-account-c">
+				<div class="account-balance-c" href="personal_info.html">
+  <div class="figure">
+    <img src="/img/avatar.png" class="avatar" />
+    </div>
+  <div class="nick">
+    <span class="secondary">用&nbsp;&nbsp;户&nbsp;名：</span>
+    <span>ldjking</span>
+  </div>
+  <div class="balance">
+    <span class="secondary">可用余额：</span>
+    <span class="money">
+    200<span class="cent">.00</span>
+    <span class="secondary font-12">元</span>
+    </span>
+  </div>
+</div>
+<label class="account-card">
+						<div class="bank bank-2-CMB left"></div>
+						<div class="left">
+							<div>招商银行</div>
+							<div class="secondary">6226*********020</div>
+						</div>
+<!-- 						<input type="radio" class="right card-radio" /> -->
+					</label>
+				<div class="secondary font-12 mt-m ml-m" id="singleRecharge"></div>
+				<div class="secondary font-12 mt-m ml-m" style="display:none;">
+					&nbsp;&nbsp;当日已累计充值<span id="day_recharge" style="color:#e63d3d">0</span>元,
+					当月已累计充值<span id="month_recharge" style="color:#e63d3d">200</span>元
+				</div>
+			</div>
+			<div id="nfd-recharge-c">
+				<form id="nfd-recharge-form-f" method="post" action="/pay/lianlian/chargeServlet.htm" autocomplete="off">
+					<input type="hidden" name="user_id" value="13582"/>
+					<input type="hidden" name="no_agree" id="no_agree" value="2015051268879774"/>
+					<input type="hidden" name="bank_code" id="bank_code" value="CMB"/>
+					<div class="recharge amount">
+						<input type="tel" id="money_order" autocomplete="off" name="money_order" placeholder="请输入充值金额" maxlength="10" money required ge="200" ge-msg="充值金额不能低于100元" le="200000">
+						<div id="b_v" style="font-weight:bold;color:#F00 !important;"></div>
+						<div class="msg-wrapper" style="display:none;"></div>
+					</div>
+					<div class="recharge">
+						<button class="btn-primary big" id="rechargeBtn">
+							确定充值
+						</button>
+					</div>
+					<div class="wording padding_10">
+						温馨提示：手机认证支付仅支持一张卡，多卡支付请使用电脑访问平台网站(www.nongfadai.com)
+					</div>
+				</form>
+			</div>
+			<!-- 在pc端绑定的卡不支持手机支付 -->
+			<!-- 多于一张银行卡 -->
+<!-- 			<div class="more-than-one-card"> -->
+<!-- 				为了保障您资金的安全，根据银行的要求只能绑定一张银行卡。您已经在农发贷平台上绑定的银行卡不支持手机支付功能。 -->
+<!-- 				请在工作时间联系农发贷客服4008-2255-38，更换银行卡。或者访问www.nongfadai.com使用网银充值。 -->
+<!-- 				农发贷客服工作时间：工作日 9:00-17:30。 -->
+<!-- 			</div> -->
+		</div>
+		</div>
+		<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+		var g_min = 100;
+		var g_max = 200000;
+		var g_day_recharge=0;
+		var g_month_recharge=200;
+	</script>
+    <script src="/js/libs/zepto/zepto.js"></script>
+	<script src="/js/libs/iscroll/iscroll.js"></script>
+    <script src="/js/libs/requirejs/require.js"></script>
+    <script src="/js/module/arabia_to_chinese.js"></script>
+    <script src="/js/mod/my_recharge.js"></script>
+	</body>
+</html>
