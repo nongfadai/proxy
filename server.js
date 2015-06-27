@@ -3,7 +3,8 @@ var app = express();
 var fs = require("fs");
 var util = require('util');
 var cookieParser = require('cookie-parser')
-var basePath="data/m_nfd";
+var basePath="data/weidai";
+var basePath="data/evernote";
 
 process.on('uncaughtException', function(e) {
   console.log("server on error");　　
@@ -43,7 +44,7 @@ function errorHandler(err, req, res, next) {
 
 
 app.all('*', function(req, res, next) {
-  //console.log("set Header first");
+  console.log("set Header first");
   //res.header("Access-Control-Allow-Origin", "*");
   //res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With,Cookie");
   //res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
@@ -75,14 +76,14 @@ function getBodyStr(obj){
 
 var request = require("request");
 function direct(req, res) {
-  //console.log("req.protocol",req.protocol);
-  //console.log("req.host",req.host);
+  console.log("req.protocol",req.protocol);
+  console.log("req.host",req.host);
   for(var p in req){
  	//console.log("p",p);
   }
 
   var url =req.protocol+"://"+ req.hostname+req.originalUrl;
-  //console.log("url:"+req.originalUrl);
+  console.log("url:"+req.originalUrl);
   //"http://www.baidu.com";
   var method=req.method;
   
@@ -150,7 +151,7 @@ function direct(req, res) {
 }
 
 
-var port = 80;
+var port = 443;
 var host = "127.0.0.1";
 
 console.log("app listen host=[" + host + "] on port=[" + port + "]");
